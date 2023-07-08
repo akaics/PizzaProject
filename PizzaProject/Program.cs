@@ -11,7 +11,7 @@ namespace PizzaProject
         // try catch thingy
         // calculate full price
         // whenever you catch an exception, you show the menu again (application shouldn't end) 
-
+        
         static double fullPrice = 0;
 
         static void Main(string[] args)
@@ -21,6 +21,9 @@ namespace PizzaProject
             Toppings();
             ChooseDrink();
             AddExtraDrink();
+
+            Console.WriteLine("Your total is " + fullPrice);
+         
         }
 
         public static void ShowMenu()
@@ -62,8 +65,6 @@ namespace PizzaProject
                     Console.WriteLine("Please only type between the numbers 1-3.");
                     ShowMenu();
                 }
-
-                Console.WriteLine(fullPrice);
             }
             catch (Exception)
             {
@@ -165,6 +166,7 @@ namespace PizzaProject
                 {
                     Console.WriteLine("You've added a Pepsi Max as well.. ew.");
                 }
+                GetDeal(fullPrice);
             }
             else if (inputYesOrNo == "no")
             {
