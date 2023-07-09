@@ -187,10 +187,10 @@ namespace PizzaProject
             //    int howMany = Console.ReadLine();
             // }
 
-
-            public static double GetDeal(double fullPrice)
-            {
-                return (fullPrice * 0.2);
-            }
         }
-}   }
+        public static double GetDeal(double fullPrice)
+        {
+            return (fullPrice * 0.2);
+        }
+    }
+}
