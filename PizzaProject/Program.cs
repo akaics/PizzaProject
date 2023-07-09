@@ -19,11 +19,13 @@ namespace PizzaProject
             Console.WriteLine("Welcome to Gül's Pizzaria!! حلال  Please check out our menu: ");
             ShowMenu();
             Toppings();
+            HowManyPizzas();
             ChooseDrink();
             AddExtraDrink();
-
-            Console.WriteLine("Your total is " + fullPrice);
+            
          
+           // Console.WriteLine("Your total is " + fullPrice);
+
         }
 
         public static void ShowMenu()
@@ -157,26 +159,38 @@ namespace PizzaProject
                 if (extraDrink == 4)
                 {
                     Console.WriteLine("You've added a nice Redbull for later.");
+                    fullPrice += 25;
+                    Console.WriteLine("You will save " + GetDeal(fullPrice) + "kr on your order now!");
                 }
                 else if (extraDrink == 5)
                 {
                     Console.WriteLine("You've added a cola.");
+                    fullPrice += 20;
+                    Console.WriteLine("Your full price after the 20% deal is " + GetDeal(fullPrice) + "kr on your order now!");
                 }
                 else if (extraDrink == 6)
                 {
                     Console.WriteLine("You've added a Pepsi Max as well.. ew.");
+                    fullPrice += 20;
+                    Console.WriteLine("Your full price after the 20% deal is " + GetDeal(fullPrice) + "kr on your order now!");
                 }
-                GetDeal(fullPrice);
             }
             else if (inputYesOrNo == "no")
             {
                 Console.WriteLine("No deal for you then.");
+                Console.WriteLine("Your full price is " + fullPrice);
             }
-        }
 
-        public static double GetDeal(double fullPrice)
-        {
-            return (fullPrice * 0.2);
-        }
+            public static int HowManyPizzas()
+            {
+                Console.WriteLine("How many of those pizzas would you like? ");
+                int howMany = Console.ReadLine();
+            }
+
+
+             public static double GetDeal(double fullPrice)
+             {
+            return (howMany + fullPrice * 0.2);
+             }
     }
 }
