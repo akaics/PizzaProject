@@ -11,7 +11,7 @@ namespace PizzaProject
         // try catch thingy
         // calculate full price
         // whenever you catch an exception, you show the menu again (application shouldn't end) 
-        
+
         static double fullPrice = 0;
 
         static void Main(string[] args)
@@ -19,12 +19,12 @@ namespace PizzaProject
             Console.WriteLine("Welcome to Gül's Pizzaria!! حلال  Please check out our menu: ");
             ShowMenu();
             Toppings();
-            HowManyPizzas();
+            // HowManyPizzas();
             ChooseDrink();
             AddExtraDrink();
-            
-         
-           // Console.WriteLine("Your total is " + fullPrice);
+
+
+            // Console.WriteLine("Your total is " + fullPrice);
 
         }
 
@@ -181,16 +181,16 @@ namespace PizzaProject
                 Console.WriteLine("Your full price is " + fullPrice);
             }
 
-            public static int HowManyPizzas()
+            // public static int HowManyPizzas()
+            //{
+            // Console.WriteLine("How many of those pizzas would you like? ");
+            //    int howMany = Console.ReadLine();
+            // }
+
+
+            public static double GetDeal(double fullPrice)
             {
-                Console.WriteLine("How many of those pizzas would you like? ");
-                int howMany = Console.ReadLine();
+                return (fullPrice * 0.2);
             }
-
-
-             public static double GetDeal(double fullPrice)
-             {
-            return (howMany + fullPrice * 0.2);
-             }
-    }
-}
+        }
+}   }
