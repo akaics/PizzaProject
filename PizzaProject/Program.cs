@@ -7,8 +7,8 @@ namespace PizzaProject
 {
     internal class Program
     {
-        // change everything to double :c
-        // try catch thingy
+        
+       
         // calculate full price
         // whenever you catch an exception, you show the menu again (application shouldn't end) 
 
@@ -21,6 +21,7 @@ namespace PizzaProject
             Toppings();
             // HowManyPizzas();
             ChooseDrink();
+            Console.Clear();
             AddExtraDrink();
 
 
@@ -28,6 +29,7 @@ namespace PizzaProject
 
         }
 
+ 
         public static void ShowMenu()
         {
             try
@@ -38,13 +40,9 @@ namespace PizzaProject
                 Console.WriteLine("2. Diavola(spicy salami):   110kr");
                 Console.WriteLine("3. Vegetarian(no meat)   89kr");
                 Console.WriteLine("---------------------------------------");
-                Console.WriteLine("Drinks:");
-                Console.WriteLine("4. Redbull: 25kr");
-                Console.WriteLine("5. Cola: 20kr");
-                Console.WriteLine("6. Pepsi Max: 20kr");
                 Console.WriteLine("Deal: buy 1 pizzas with 2 drinks for 20% off your whole order. The deal will be automatically counted in checkout");
                 Console.WriteLine("---------------------------------------");
-                Console.WriteLine("Name the number of the pizza you'd like:");
+                Console.Write("Name the number of the pizza you'd like:");
                 double inputPizza = Convert.ToDouble(Console.ReadLine());
 
                 if (inputPizza == 1)
@@ -79,9 +77,11 @@ namespace PizzaProject
         {
             try
             {
-                Console.WriteLine("Choose toppings:");
+                Console.WriteLine("Toppings: ");
                 Console.WriteLine("1. Extra cheese: +5kr");
                 Console.WriteLine("2. Nothing.");
+                Console.Write("Choose topping:");
+ 
                 double inputToppings = Convert.ToDouble(Console.ReadLine());
 
                 if (inputToppings == 1)
@@ -110,22 +110,24 @@ namespace PizzaProject
         {
             try
             {
-                Console.WriteLine("Now, please choose a drink:");
-                Console.WriteLine("4. Redbull: 25kr");
-                Console.WriteLine("5. Cola: 20kr");
-                Console.WriteLine("6. Pepsi Max: 20kr");
+                Console.WriteLine("Drinks Menu:");
+                Console.WriteLine("1. Redbull: 25kr");
+                Console.WriteLine("2. Cola: 20kr");
+                Console.WriteLine("3. Pepsi Max: 20kr");
+                Console.Write("Now, please choose a drink:");
                 double inputDrink = Convert.ToDouble(Console.ReadLine());
-                if (inputDrink == 4)
+
+                if (inputDrink == 1)
                 {
                     Console.WriteLine("You've added a Redbull, doesn't go with pizza but okay.");
                     fullPrice += 25;
                 }
-                else if (inputDrink == 5)
+                else if (inputDrink == 2)
                 {
                     Console.WriteLine("You've added a cola.. perfect for a meal.");
                     fullPrice += 20;
                 }
-                else if (inputDrink == 6)
+                else if (inputDrink == 3)
                 {
                     Console.WriteLine("You've added a Pepsi Max.");
                     fullPrice += 20;
@@ -149,12 +151,16 @@ namespace PizzaProject
 
         public static void AddExtraDrink()
         {
-            Console.WriteLine("Would you like to add an extra drink? Don't miss out on our deal for 20% off! yes/no (lowercase letters please)");
-            string inputYesOrNo = Console.ReadLine();
+            Console.Write("Would you like to add an extra drink? Don't miss out on our deal for 20% off! yes/no");
+            string inputYesOrNo = Console.ReadLine().ToLower();
 
             if (inputYesOrNo == "yes")
             {
-                Console.WriteLine("Yayy just type whichever number you'd like as an extra drink");
+               
+                Console.WriteLine("1. Redbull: 25kr");
+                Console.WriteLine("2. Cola: 20kr");
+                Console.WriteLine("3. Pepsi Max: 20kr");
+                Console.Write("Yayy just type whichever number you'd like as an extra drink");
                 double extraDrink = Convert.ToDouble(Console.ReadLine());
                 if (extraDrink == 4)
                 {
