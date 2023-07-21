@@ -7,8 +7,7 @@ namespace PizzaProject
 {
     internal class Program
     {
-        
-       
+
         // calculate full price
         // whenever you catch an exception, you show the menu again (application shouldn't end) 
 
@@ -18,6 +17,7 @@ namespace PizzaProject
         {
             Console.WriteLine("Welcome to Gül's Pizzaria!! حلال  Please check out our menu: ");
             ShowMenu();
+            Console.WriteLine();
             Toppings();
             // HowManyPizzas();
             ChooseDrink();
@@ -29,21 +29,21 @@ namespace PizzaProject
 
         }
 
- 
+
         public static void ShowMenu()
         {
             try
             {
-                Console.WriteLine("---------------------------------------");
+                Console.WriteLine();
                 Console.WriteLine("Pizzas:");
                 Console.WriteLine("1. Carbonara(mozzarella, ricotta, eggs)   100kr");
                 Console.WriteLine("2. Diavola(spicy salami):   110kr");
                 Console.WriteLine("3. Vegetarian(no meat)   89kr");
-                Console.WriteLine("---------------------------------------");
+                Console.WriteLine();
                 Console.WriteLine("Deal: buy 1 pizzas with 2 drinks for 20% off your whole order. The deal will be automatically counted in checkout");
-                Console.WriteLine("---------------------------------------");
-                Console.Write("Name the number of the pizza you'd like:");
-                double inputPizza = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine();
+                Console.Write("Name the number of the pizza you'd like: ");
+                int inputPizza = Convert.ToInt32(Console.ReadLine());
 
                 if (inputPizza == 1)
                 {
@@ -80,9 +80,9 @@ namespace PizzaProject
                 Console.WriteLine("Toppings: ");
                 Console.WriteLine("1. Extra cheese: +5kr");
                 Console.WriteLine("2. Nothing.");
-                Console.Write("Choose topping:");
- 
-                double inputToppings = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Choose topping: ");
+
+                int inputToppings = Convert.ToInt32(Console.ReadLine());
 
                 if (inputToppings == 1)
                 {
@@ -110,12 +110,13 @@ namespace PizzaProject
         {
             try
             {
+                Console.WriteLine();
                 Console.WriteLine("Drinks Menu:");
                 Console.WriteLine("1. Redbull: 25kr");
                 Console.WriteLine("2. Cola: 20kr");
                 Console.WriteLine("3. Pepsi Max: 20kr");
                 Console.Write("Now, please choose a drink:");
-                double inputDrink = Convert.ToDouble(Console.ReadLine());
+                int inputDrink = Convert.ToInt32(Console.ReadLine());
 
                 if (inputDrink == 1)
                 {
@@ -145,39 +146,42 @@ namespace PizzaProject
             }
             finally
             {
-                Console.WriteLine("Heres your fullprice so far: " + fullPrice);
+                Console.WriteLine("Heres your full price so far: " + fullPrice);
             }
         }
 
         public static void AddExtraDrink()
         {
-            Console.Write("Would you like to add an extra drink? Don't miss out on our deal for 20% off! yes/no");
+            Console.Write("Would you like to add an extra drink? Don't miss out on our deal for 20% off! (yes/no): ");
             string inputYesOrNo = Console.ReadLine().ToLower();
 
             if (inputYesOrNo == "yes")
             {
-               
+
                 Console.WriteLine("1. Redbull: 25kr");
                 Console.WriteLine("2. Cola: 20kr");
                 Console.WriteLine("3. Pepsi Max: 20kr");
-                Console.Write("Yayy just type whichever number you'd like as an extra drink");
-                double extraDrink = Convert.ToDouble(Console.ReadLine());
-                if (extraDrink == 4)
+                Console.WriteLine();
+                Console.Write("Yayy just type whichever number you'd like as an extra drink: ");
+                int extraDrink = Convert.ToInt32(Console.ReadLine());
+                if (extraDrink == 1)
                 {
                     Console.WriteLine("You've added a nice Redbull for later.");
                     fullPrice += 25;
                     Console.WriteLine("You will save " + GetDeal(fullPrice) + "kr on your order now!");
                 }
-                else if (extraDrink == 5)
+                else if (extraDrink == 2)
                 {
                     Console.WriteLine("You've added a cola.");
                     fullPrice += 20;
-                    Console.WriteLine("Your full price after the 20% deal is " + GetDeal(fullPrice) + "kr on your order now!");
                 }
-                else if (extraDrink == 6)
+                else if (extraDrink == 3)
                 {
                     Console.WriteLine("You've added a Pepsi Max as well.. ew.");
                     fullPrice += 20;
+                }
+                if (extraDrink >= 1 && extraDrink <= 3)
+                {
                     Console.WriteLine("Your full price after the 20% deal is " + GetDeal(fullPrice) + "kr on your order now!");
                 }
             }
@@ -187,16 +191,15 @@ namespace PizzaProject
                 Console.WriteLine("Your full price is " + fullPrice);
             }
 
-            // public static int HowManyPizzas()
-            //{
-            // Console.WriteLine("How many of those pizzas would you like? ");
-            //    int howMany = Console.ReadLine();
-            // }
-
         }
         public static double GetDeal(double fullPrice)
         {
             return (fullPrice * 0.2);
         }
+        // public static int HowManyPizzas()
+        //{
+        // Console.WriteLine("How many of those pizzas would you like? ");
+        //    int howMany = Console.ReadLine();
+        // }
     }
 }
